@@ -8,6 +8,8 @@
     integer :: peak_idx1, peak_idx2, peak_idx3
     character(len=20) :: peak_str1, peak_str2, peak_str3
 
+    real :: avg1, avg2, avg3
+
     open(newunit=unit_num, file = "../data/seisdata.txt", status = "old", action = "read")
 
     n = 0
@@ -25,6 +27,14 @@
         if (io_status /= 0) exit
     end do
     close(unit_num)
+
+    avg1 = sum(E1)/size(E1)
+    avg2 = sum(E2)/size(E2)
+    avg3 = sum(E3)/size(E3)
+
+    E1 = E1 - avg1
+    E2 = E2 - avg2
+    E3 = E3 - avg3
 
     peak_value1 = maxval(E1)
     peak_value2 = maxval(E2)
