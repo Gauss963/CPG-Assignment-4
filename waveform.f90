@@ -37,6 +37,27 @@ program waveform
         print *, E1(i), E2(i), E3(i)
     end do
 
+    call pgopen('waveform_plot.png/PNG')
+    call pgenv(minval(T(1:n)), maxval(T(1:n)), minval(E1(1:n)), maxval(E1(1:n)), 0, 1)
+    call pglabel('Time (T)', 'Amplitude', 'Waveform E1, E2, E3')
+
+    ! 繪製 E1 波形
+    call pgline(n, T, E1)
+
+    ! 更改顏色繪製 E2
+    call pgsch(1.0)        ! 設定字體大小
+    call pgslw(2)          ! 設定線寬
+    call pgsci(3)          ! 設定顏色 (3 表示綠色)
+    call pgline(n, T, E2)
+
+    ! 更改顏色繪製 E3
+    call pgsci(4)          ! 設定顏色 (4 表示藍色)
+    call pgline(n, T, E3)
+
+    ! 關閉繪圖裝置
+    call pgclos()
+
+
 
 
     deallocate(T, E1, E2, E3)
