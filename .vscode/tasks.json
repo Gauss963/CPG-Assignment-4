@@ -1,0 +1,20 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Fortran",
+            "type": "shell",
+            "command": "gfortran",
+            "args": [
+                "-o",
+                "waveform",
+                "waveform.f90"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        }
+    ]
+}
