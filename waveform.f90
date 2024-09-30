@@ -8,7 +8,6 @@
     integer :: peak_idx1, peak_idx2, peak_idx3
     character(len=20) :: peak_str1, peak_str2, peak_str3
 
-    ! 讀取數據文件
     open(newunit=unit_num, file = "../data/seisdata.txt", status = "old", action = "read")
 
     n = 0
@@ -55,7 +54,7 @@
     call pgsci(2)
     call pgline(n, T, E1)
 
-    ! 標註 E1 的峰值
+    ! Label E1 peak
     call pgpt(1, [T(peak_idx1)], [peak_value1], 17)
     call pgtext(T(peak_idx1), peak_value1 - 2, 'Peak='//trim(adjustl(peak_str1)))
 
@@ -66,7 +65,7 @@
     call pgsci(3)
     call pgline(n, T, E2)
 
-    ! 標註 E2 的峰值
+    ! Label E2 peak
     call pgpt(1, [T(peak_idx2)], [peak_value2], 17)
     call pgtext(T(peak_idx2), peak_value2 - 2, 'Peak='//trim(adjustl(peak_str2)))
 
@@ -77,7 +76,7 @@
     call pgsci(4)
     call pgline(n, T, E3)
 
-    ! 標註 E3 的峰值
+    ! Label E3 peak
     call pgpt(1, [T(peak_idx3)], [peak_value3], 17)
     call pgtext(T(peak_idx3), peak_value3 - 2, 'Peak='//trim(adjustl(peak_str3)))
 
