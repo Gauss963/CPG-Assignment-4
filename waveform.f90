@@ -40,7 +40,6 @@
     write(peak_str2, '(F8.2)') peak_value2
     write(peak_str3, '(F8.2)') peak_value3
 
-    ! call pgopen('waveform_plot.png/PNG')
     call pgopen('waveform_plot.ps/VCPS')
     call pgsubp(1, 3)
 
