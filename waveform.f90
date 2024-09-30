@@ -28,6 +28,15 @@ program waveform
 
     print *, n
 
+    print *, "Waveform of first 10 samples:"
+    do i = 1, min(10, n)
+        print *, T(i)
+    end do
+
+    do i = 1, min(10, n)
+        print *, E1(i), E2(i), E3(i)
+    end do
+
 
 
     deallocate(T, E1, E2, E3)
